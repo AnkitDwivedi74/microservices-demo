@@ -32,12 +32,6 @@ spec:
         app: emailservice
     spec:
       serviceAccountName: default
-      terminationGracePeriodSeconds: 5
-      securityContext:
-        fsGroup: 1000
-        runAsGroup: 1000
-        runAsNonRoot: true
-        runAsUser: 1000
       containers:
       - name: server
         securityContext:
@@ -98,11 +92,6 @@ spec:
         app: checkoutservice
     spec:
       serviceAccountName: default
-      securityContext:
-        fsGroup: 1000
-        runAsGroup: 1000
-        runAsNonRoot: true
-        runAsUser: 1000
       containers:
         - name: server
           securityContext:
@@ -171,12 +160,6 @@ spec:
         app: recommendationservice
     spec:
       serviceAccountName: default
-      terminationGracePeriodSeconds: 5
-      securityContext:
-        fsGroup: 1000
-        runAsGroup: 1000
-        runAsNonRoot: true
-        runAsUser: 1000
       containers:
       - name: server
         securityContext:
@@ -241,11 +224,6 @@ spec:
         sidecar.istio.io/rewriteAppHTTPProbers: "true"
     spec:
       serviceAccountName: default
-      securityContext:
-        fsGroup: 1000
-        runAsGroup: 1000
-        runAsNonRoot: true
-        runAsUser: 1000
       containers:
         - name: server
           securityContext:
@@ -347,12 +325,6 @@ spec:
         app: paymentservice
     spec:
       serviceAccountName: default
-      terminationGracePeriodSeconds: 5
-      securityContext:
-        fsGroup: 1000
-        runAsGroup: 1000
-        runAsNonRoot: true
-        runAsUser: 1000
       containers:
       - name: server
         securityContext:
@@ -411,12 +383,6 @@ spec:
         app: productcatalogservice
     spec:
       serviceAccountName: default
-      terminationGracePeriodSeconds: 5
-      securityContext:
-        fsGroup: 1000
-        runAsGroup: 1000
-        runAsNonRoot: true
-        runAsUser: 1000
       containers:
       - name: server
         securityContext:
@@ -475,12 +441,6 @@ spec:
         app: cartservice
     spec:
       serviceAccountName: default
-      terminationGracePeriodSeconds: 5
-      securityContext:
-        fsGroup: 1000
-        runAsGroup: 1000
-        runAsNonRoot: true
-        runAsUser: 1000
       containers:
       - name: server
         securityContext:
@@ -543,13 +503,6 @@ spec:
         sidecar.istio.io/rewriteAppHTTPProbers: "true"
     spec:
       serviceAccountName: default
-      terminationGracePeriodSeconds: 5
-      restartPolicy: Always
-      securityContext:
-        fsGroup: 1000
-        runAsGroup: 1000
-        runAsNonRoot: true
-        runAsUser: 1000
       initContainers:
       - command:
         - /bin/sh
@@ -610,12 +563,6 @@ spec:
         app: currencyservice
     spec:
       serviceAccountName: default
-      terminationGracePeriodSeconds: 5
-      securityContext:
-        fsGroup: 1000
-        runAsGroup: 1000
-        runAsNonRoot: true
-        runAsUser: 1000
       containers:
       - name: server
         securityContext:
@@ -675,11 +622,6 @@ spec:
         app: shippingservice
     spec:
       serviceAccountName: default
-      securityContext:
-        fsGroup: 1000
-        runAsGroup: 1000
-        runAsNonRoot: true
-        runAsUser: 1000
       containers:
       - name: server
         securityContext:
@@ -738,20 +680,8 @@ spec:
       labels:
         app: redis-cart
     spec:
-      securityContext:
-        fsGroup: 1000
-        runAsGroup: 1000
-        runAsNonRoot: true
-        runAsUser: 1000
       containers:
       - name: redis
-        securityContext:
-          allowPrivilegeEscalation: false
-          capabilities:
-            drop:
-              - all
-          privileged: false
-          readOnlyRootFilesystem: true
         image: redis:alpine
         ports:
         - containerPort: 6379
@@ -804,12 +734,6 @@ spec:
         app: adservice
     spec:
       serviceAccountName: default
-      terminationGracePeriodSeconds: 5
-      securityContext:
-        fsGroup: 1000
-        runAsGroup: 1000
-        runAsNonRoot: true
-        runAsUser: 1000
       containers:
       - name: server
         securityContext:
